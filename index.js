@@ -1,5 +1,6 @@
-/* eslint-disable max-classes-per-file */
-import { Book, Store, showBooks } from './modules/class.js';
+import Book from './modules/class.js';
+import Store from './modules/app.js';
+import showBooks from './modules/app3.js';
 import { DateTime } from './node_modules/luxon/build/es6/luxon.js';
 
 document.addEventListener('DOMContentLoaded', showBooks.displayBooks);
@@ -8,21 +9,21 @@ const showBookList = document.getElementById('nav-list');
 const showAddBook = document.getElementById('nav-add');
 const showContact = document.getElementById('nav-contact');
 
-function showList() {
+const showList = () => {
   document.getElementById('book-list').style.display = 'flex';
   document.getElementById('add-new').style.display = 'none';
   document.getElementById('contact').style.display = 'none';
-}
-function showAdd() {
+};
+const showAdd = () => {
   document.getElementById('book-list').style.display = 'none';
   document.getElementById('add-new').style.display = 'flex';
   document.getElementById('contact').style.display = 'none';
-}
-function showContactPage() {
+};
+const showContactPage = () => {
   document.getElementById('book-list').style.display = 'none';
   document.getElementById('add-new').style.display = 'none';
   document.getElementById('contact').style.display = 'flex';
-}
+};
 
 window.addEventListener('load', () => {
   showList();
@@ -57,6 +58,3 @@ document.querySelector('#list').addEventListener('click', (e) => {
 });
 
 document.getElementById('date').innerHTML = DateTime.now().toLocaleString(DateTime.TIME_SIMPLE);
-
-// const date = new Date();
-// document.getElementById('date').innerHTML = date;
